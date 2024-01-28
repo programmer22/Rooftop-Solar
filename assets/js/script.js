@@ -90,3 +90,26 @@ tabButtons.forEach(button => {
     hiddenInput.value = button.getAttribute('data-tab-btn');
   });
 });
+
+
+// JavaScript to show/hide the pop-up
+const learnMoreButton = document.getElementById('learn-more-button');
+const popupContainer = document.getElementById('popup-container');
+const closePopup = document.getElementById('close-popup');
+
+learnMoreButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  popupContainer.style.display = 'block';
+});
+
+closePopup.addEventListener('click', (e) => {
+  e.preventDefault();
+  popupContainer.style.display = 'none';
+});
+
+// Close the pop-up if the user clicks outside the content
+window.addEventListener('click', (event) => {
+  if (event.target === popupContainer) {
+    popupContainer.style.display = 'none';
+  }
+});
